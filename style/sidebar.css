@@ -1,0 +1,21 @@
+#sidebar{
+  display:grid;
+  justify-items:left;
+  justify-content:center;
+}
+#sidebar div{
+  font-weight:bold;
+}
+
+#sidebar span{
+  font-weight:normal;
+}
+#sidebar #coins{
+  font-weight:normal;
+  margin-top:1em;
+}
+#sidebar #instructions{
+  font-weight:normal;
+  margin-top:1em;
+  width:30em;
+}

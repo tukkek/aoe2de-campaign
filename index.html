@@ -1,0 +1,67 @@
+<meta charset="utf-8">
+<title>Age of Empires II: Definitive Edition campaign generator</title> 
+<link rel='stylesheet' href='style/base.css'>
+<link rel='stylesheet' href='style/map.css'>
+<link rel='stylesheet' href='style/sidebar.css'>
+<div id='map'>
+  <div class='grid'>  
+    <div class='hex' x='0' y='6'></div>
+    <div class='hex' x='2' y='6'></div>
+    <div class='hex' x='4' y='6'></div>
+    <div class='hex' x='6' y='6'></div>
+    <div class='hex' x='0' y='4'></div>
+    <div class='hex' x='2' y='4'></div>
+    <div class='hex' x='4' y='4'></div>
+    <div class='hex' x='6' y='4'></div>
+    <div class='hex' x='0' y='2'></div>
+    <div class='hex' x='2' y='2'></div>
+    <div class='hex' x='4' y='2'></div>
+    <div class='hex' x='6' y='2'></div>
+    <div class='hex' x='0' y='0'></div>
+    <div class='hex' x='2' y='0'></div>
+    <div class='hex' x='4' y='0'></div>
+    <div class='hex' x='6' y='0'></div>
+  </div>
+  <div class='grid other'>
+    <div class='hex' x='1' y='5'></div>
+    <div class='hex' x='3' y='5'></div>
+    <div class='hex' x='5' y='5'></div>
+    <div class='hex' x='1' y='3'></div>
+    <div class='hex' x='3' y='3'></div>
+    <div class='hex' x='5' y='3'></div>
+    <div class='hex' x='1' y='1'></div>
+    <div class='hex' x='3' y='1'></div>
+    <div class='hex' x='5' y='1'></div>
+  </div>
+</div>
+<div id='sidebar'>
+  <h1>Match details</h1>
+  <div>Player 1 (you): <span></span></div>
+  <div>Player 2: <span></span></div>
+  <div>Player 3: <span></span></div>
+  <div>Player 4: <span></span></div>
+  <div>Player 5: <span></span></div>
+  <div>Player 6: <span></span></div>
+  <div>Player 7: <span></span></div>
+  <div>Player 8: <span></span></div>
+  <div id='mapstyle'>Map style: <span></span></div>
+  <div id='difficulty'>AI Difficulty: <span></span></div>
+  <div id='coins'><label><input type='number' value='0'> gold available.</label></div>
+  <div id='instructions'>
+    Instructions:<br>
+    - Go from the bottom hexes to the top, choosing your own path, one adjacent area at a time.<br>
+    - Each hex is a match against the AI, hover over it with the mouse to see match setup details.<br>
+    - After winning a match, click the respective hex so its inhabiting civilization will aide you in nearby matches.<br>
+    - If a map seems too hard or impossible to complete, reload the page to create a new campaign.<br>
+    - You win after winning any Extreme difficulty match.<br>
+    - Gain gold by winning matches and spend it to optionally add one-time allies to a game setup.<br>
+  </div>
+</div>
+<script type='module'>
+  import * as campaign from './src/campaign.js'
+  import * as map from './src/map.js'
+  import * as sidebar from './src/sidebar.js'
+  campaign.setup()
+  map.setup()
+  sidebar.setup()
+</script>

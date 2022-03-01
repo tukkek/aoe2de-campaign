@@ -1,0 +1,43 @@
+.map{
+  position:absolute;
+  top:0;
+  left:0;
+}
+.grid{
+  display:grid;
+  grid-auto-flow:row;
+  grid-gap:0px 90px;
+  grid-template-columns:repeat(4,150px);
+  position:absolute;
+  top:0;
+  left:0;
+  pointer-events:none;
+}
+.other{
+  top:75px;
+  left:120px;
+  grid-template-columns:repeat(3,150px);
+}
+.hex{
+  height:150px;
+  width:150px;
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  display:grid;
+  align-items:center;
+  justify-items:center;
+  pointer-events:all;
+}
+.hex[map='water'],.hex[map='migration']{
+  background:lightblue;
+}
+.hex[map='mixed']{
+  background:sandybrown;
+}
+.hex[map='land'],.hex[map='nomad']{
+  background:darkred;
+}
+
+.hex.conquered{
+  background:lightgreen;
+}
