@@ -1,3 +1,3 @@
-# Single-player campaign generator for Age of Empires II: Definitive Edition
+# Online skirmish campaign generator
 
 Access it [here](https://tukkek.github.io/aoe2de-campaign/).
