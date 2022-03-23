@@ -1,6 +1,7 @@
 import * as sidebar from './sidebar.js'
 import * as rpg from './rpg.js'
 
+export const SIZES=[2,3,4,6,8]
 const MAP=document.querySelector('#map')
 
 export function get(x=-Number.MAX_VALUE,y=-Number.MAX_VALUE){
