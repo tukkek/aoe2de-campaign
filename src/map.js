@@ -41,7 +41,5 @@ export function draw(){
     f.setAttribute('map','water')
     for(let n of getneighbors(f).filter(n=>flood.indexOf(n)<0)) n.setAttribute('map','mixed')
   }
-  for(let entrance of get(-Number.MAX_VALUE,0))
-    entrance.setAttribute('map',entrance.getAttribute('map')=='water'?'migration':'nomad')
   for(let a of all) if(rpg.chancein(3)) a.removeAttribute('map')
 }
