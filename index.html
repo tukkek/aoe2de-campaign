@@ -47,7 +47,7 @@
   <div id='mapstyle'><strong>Map style:</strong> <span>TBD</span>.</div>
   <div id='mapsize'><strong>Map size:</strong> <span>?</span> players.</div>
   <div id='difficulty'><strong>AI Difficulty:</strong> <span>TBD</span>.</div>
-  <div id='coins'><label><input type='number' value='0'> gold available.</label></div>
+  <div id='coins'><label><input type='number' value='1'> gold available.</label></div>
   <div id='instructions'>
     <strong>Instructions:</strong>
     <ol>
@@ -72,8 +72,11 @@
   import * as campaign from './src/campaign.js'
   import * as map from './src/map.js'
   import * as sidebar from './src/sidebar.js'
+  import * as permalink from './src/permalink.js'
 
+  permalink.load()
   campaign.setup()
   map.setup()
   sidebar.setup()
+  permalink.update()
 </script>

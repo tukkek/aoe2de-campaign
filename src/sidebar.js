@@ -1,6 +1,6 @@
 import * as campaign from './campaign.js'
 import * as map from './map.js'
-import * as rpg from './rpg.js'
+import * as permalink from './permalink.js'
 
 const DIFFICULTY=['easiest','standard','moderate','hard','hardest','extreme','extreme']
 const SIDEBAR=document.querySelector('#sidebar')
@@ -36,18 +36,11 @@ function describe(m){
   }
 }
 
-export function profit(){
-  GOLD.value=Number(GOLD.value)+1
-}
+export function account(){return Number(GOLD.value)}
+export function profit(gold=-Infinity){GOLD.value=gold==-Infinity?account()+1:gold}
 
 export function setup(){
   setplayer(PLAYERS[0],campaign.player,1)
   for(let m of map.get()) m.onmouseover=e=>describe(m)
-  GOLD.value=1
-  let permalink=new URL(document.location)
-  if(!permalink.searchParams.get('seed'))
-    permalink.searchParams.append('seed',rpg.SEED)
-  SIDEBAR.querySelector('#permalink').href=permalink
-  permalink.searchParams.delete('seed')
-  SIDEBAR.querySelector('#freshlink').href=permalink
+  GOLD.addEventListener('change',()=>permalink.update())
 }
