@@ -49,19 +49,27 @@
   <div id='difficulty'><strong>AI Difficulty:</strong> <span>TBD</span>.</div>
   <div id='coins'><label><input type='number' value='0'> gold available.</label></div>
   <div id='instructions'>
-    Instructions:<br>
-    - Go from the bottom hexes to the top, choosing your own path, one adjacent area at a time.<br>
-    - Each hex is a match against the AI, hover over it with the mouse to see match setup details.<br>
-    - After winning a match, click the respective hex so its inhabiting civilization will aide you in nearby matches.<br>
-    - If a map seems too hard or impossible to complete, reload the page to create a new campaign.<br>
-    - You win after winning any Extreme difficulty match.<br>
-    - Gain gold by winning matches and spend it to optionally add one-time allies to a game setup.<br>
+    <strong>Instructions:</strong>
+    <ol>
+      <li>Go from the bottom hexes to the top, choosing your own path, one adjacent area at a time.</li>
+      <li>Each hex is a match against the AI, hover over it with the mouse to see match setup details.</li>
+      <li>After winning a match, click the respective hex so its inhabiting civilization will aide you in nearby matches.</li>
+      <li>If a map seems too hard or impossible to complete, reload the page to create a new campaign.</li>
+      <li>You win after winning any Extreme difficulty match.</li>
+      <li>Gain gold by winning matches and spend it to optionally add one-time allies to a game setup.</li>
+    </ul>
+  </div>
+  <div id='permalink'>
+    <p>Use <a>this link</a> to access a permanent version of your campaign.</p>
+    <p>Refresh the page to generate a new campaign.</p>
   </div>
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
 <script type='module'>
   import * as campaign from './src/campaign.js'
   import * as map from './src/map.js'
   import * as sidebar from './src/sidebar.js'
+
   campaign.setup()
   map.setup()
   sidebar.setup()

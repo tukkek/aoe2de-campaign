@@ -2,6 +2,7 @@
   display:grid;
   justify-items:left;
   justify-content:center;
+  text-align:justify;
 }
 #sidebar span{
   font-weight:normal;
@@ -17,4 +18,8 @@
 }
 #sidebar #mapstyle{
   margin-top:1em;
+}
+#sidebar #permalink p{
+  margin:0;
+  padding:0;
 }
