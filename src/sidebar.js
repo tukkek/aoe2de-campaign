@@ -6,7 +6,6 @@ const DIFFICULTY=['easiest','standard','moderate','hard','hardest','extreme','ex
 const SIDEBAR=document.querySelector('#sidebar')
 const PLAYERS=Array.from(SIDEBAR.querySelectorAll('div')).slice(0,8)
 const GOLD=SIDEBAR.querySelector('input')
-const PERMALINK=SIDEBAR.querySelector('#permalink a')
 
 function set(div,text){div.querySelector('span').innerHTML=text}
 function setplayer(div,text,team){set(div,text+` (team ${team}).`)}
@@ -48,5 +47,7 @@ export function setup(){
   let permalink=new URL(document.location)
   if(!permalink.searchParams.get('seed'))
     permalink.searchParams.append('seed',rpg.SEED)
-  PERMALINK.href=permalink
+  SIDEBAR.querySelector('#permalink').href=permalink
+  permalink.searchParams.delete('seed')
+  SIDEBAR.querySelector('#freshlink').href=permalink
 }
