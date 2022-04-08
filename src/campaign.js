@@ -16,6 +16,9 @@ export function setup(){
   let civs=rpg.shuffle(CIVS,false)
   player=civs.pop()
   map.draw()
-  for(let m of map.get().filter(m=>m.getAttribute('map')))
-    m.setAttribute('civilization',civs.pop())
+  let conquered=map.getconquered()
+  for(let m of map.get().filter(m=>m.getAttribute('map'))){
+    let civ=conquered.indexOf(m)>=0?player:civs.pop()
+    m.setAttribute('civilization',civ)
+  }
 }

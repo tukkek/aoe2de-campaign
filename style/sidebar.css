@@ -1,21 +1,35 @@
 #sidebar{
-  display:grid;
-  justify-items:left;
-  justify-content:center;
   text-align:justify;
+  position:fixed;
+  right:0;
+  top:0;
+  width:25em;
+  overflow-y:auto;
+  height:100%;
 }
 #sidebar span{
   font-weight:normal;
 }
 #sidebar #coins{
   font-weight:normal;
-  margin-top:1em;
+  margin:1em 0em;
+}
+#sidebar #coins input{
+  width:4em;
+  text-align:center;
 }
 #sidebar #instructions{
   font-weight:normal;
-  margin-top:1em;
-  width:30em;
+  padding-right:1em;
 }
 #sidebar #mapstyle{
   margin-top:1em;
+}
+#sidebar h1{
+  font-size:1em;
+  text-decoration:underline;
+  text-align:center;
+}
+#sidebar .hidden{
+  display:none;
 }

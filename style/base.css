@@ -3,6 +3,5 @@ html,body{
   padding:0;
 }
 body{
-  display:grid;
-  grid-auto-flow:column;
+  background-color:beige;
 }

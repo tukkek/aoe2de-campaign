@@ -5,66 +5,71 @@
 <link rel='stylesheet' href='style/sidebar.css'>
 <div id='map'>
   <div class='grid'>  
-    <div class='hex' x='0' y='6'></div>
-    <div class='hex' x='2' y='6'></div>
-    <div class='hex' x='4' y='6'></div>
-    <div class='hex' x='6' y='6'></div>
-    <div class='hex' x='0' y='4'></div>
-    <div class='hex' x='2' y='4'></div>
-    <div class='hex' x='4' y='4'></div>
-    <div class='hex' x='6' y='4'></div>
-    <div class='hex' x='0' y='2'></div>
-    <div class='hex' x='2' y='2'></div>
-    <div class='hex' x='4' y='2'></div>
-    <div class='hex' x='6' y='2'></div>
-    <div class='hex' x='0' y='0'></div>
-    <div class='hex' x='2' y='0'></div>
-    <div class='hex' x='4' y='0'></div>
-    <div class='hex' x='6' y='0'></div>
+    <div class='hex' x='0' y='7'></div>
+    <div class='hex' x='2' y='7'></div>
+    <div class='hex' x='4' y='7'></div>
+    <div class='hex' x='6' y='7'></div>
+    <div class='hex' x='0' y='5'></div>
+    <div class='hex' x='2' y='5'></div>
+    <div class='hex' x='4' y='5'></div>
+    <div class='hex' x='6' y='5'></div>
+    <div class='hex' x='0' y='3'></div>
+    <div class='hex' x='2' y='3'></div>
+    <div class='hex' x='4' y='3'></div>
+    <div class='hex' x='6' y='3'></div>
+    <div class='hex' x='0' y='1'></div>
+    <div class='hex' x='2' y='1'></div>
+    <div class='hex' x='4' y='1'></div>
+    <div class='hex' x='6' y='1'></div>
   </div>
   <div class='grid other'>
-    <div class='hex' x='1' y='5'></div>
-    <div class='hex' x='3' y='5'></div>
-    <div class='hex' x='5' y='5'></div>
-    <div class='hex' x='1' y='3'></div>
-    <div class='hex' x='3' y='3'></div>
-    <div class='hex' x='5' y='3'></div>
-    <div class='hex' x='1' y='1'></div>
-    <div class='hex' x='3' y='1'></div>
-    <div class='hex' x='5' y='1'></div>
+    <div class='hex' x='1' y='6'></div>
+    <div class='hex' x='3' y='6'></div>
+    <div class='hex' x='5' y='6'></div>
+    <div class='hex' x='1' y='4'></div>
+    <div class='hex' x='3' y='4'></div>
+    <div class='hex' x='5' y='4'></div>
+    <div class='hex' x='1' y='2'></div>
+    <div class='hex' x='3' y='2'></div>
+    <div class='hex' x='5' y='2'></div>
+    <div class='hex' x='1' y='0'></div>
+    <div class='hex' x='3' y='0'></div>
+    <div class='hex' x='5' y='0'></div>
   </div>
 </div>
 <div id='sidebar'>
   <h1>Match details</h1>
   <div><strong>Player 1 (you):</strong> <span>-</span></div>
-  <div><strong>Player 2:</strong> <span>none</span>.</div>
-  <div><strong>Player 3:</strong> <span>none</span>.</div>
-  <div><strong>Player 4:</strong> <span>none</span>.</div>
-  <div><strong>Player 5:</strong> <span>none</span>.</div>
-  <div><strong>Player 6:</strong> <span>none</span>.</div>
-  <div><strong>Player 7:</strong> <span>none</span>.</div>
-  <div><strong>Player 8:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 2:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 3:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 4:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 5:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 6:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 7:</strong> <span>none</span>.</div>
+  <div class='hidden'><strong>Player 8:</strong> <span>none</span>.</div>
   <div id='mapstyle'><strong>Map style:</strong> <span>TBD</span>.</div>
-  <div id='mapsize'><strong>Map size:</strong> <span>?</span> players.</div>
+  <div id='mapsize'><strong>Map size:</strong> <span>TBD</span>.</div>
   <div id='difficulty'><strong>AI Difficulty:</strong> <span>TBD</span>.</div>
   <div id='coins'><label><input type='number' value='1'> gold available.</label></div>
-  <div id='instructions'>
-    <strong>Instructions:</strong>
-    <ol>
-      <li>Go from the bottom hexes to the top, choosing your own path, one adjacent area at a time.</li>
-      <li>Each hex is a match against the AI, hover over it with the mouse to see match setup details.</li>
-      <li>After winning a match, click the respective hex so its inhabiting civilization will aide you in nearby matches.</li>
-      <li>If a map seems too hard or impossible to complete, reload the page to create a new campaign.</li>
-      <li>You win after winning any Extreme difficulty match.</li>
-      <li>Gain gold by winning matches and spend it to optionally add one-time allies to a game setup.</li>
-    </ul>
-  </div>
   <div id='links'>
-    <strong>Links:</strong>
+    <strong>Links</strong>
     <ul>
-      <li><a id='permalink'>This campaign</a> (permalink)</li>
       <li><a id='freshlink'>New campaign</a></li>
+      <li><a id='permalink'>This campaign</a> (permalink)</li>
     <ul>
+  </div>
+  <div id='instructions'>
+    <strong>Instructions</strong>
+    <ol>
+      <li>Generate new campaigns as needed until you are ready to begin.</li>
+      <li>Green hexes are allies that will reinforce your team when you invade their neighbors.</li>
+      <li>Go from the bottom green hexes to the top, choosing your own path, one neighboring area at a time.</li>
+      <li>To conquer a hex, play a match against the AI. Hover with the cursor to see match setup details.</li>
+      <li>After winning a match, click the respective hex to conquer it as a new ally.</li>
+      <li>Victories reward you with gold! When the option is available, you may pay gold to add allies for one match.</li>
+      <li>To save your campaign progress, use the permalink function below (then bookmark the tab, for example).</li>
+      <li>You win the campaign after conquering any Extreme difficulty hex.</li>
+    </ul>
   </div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>

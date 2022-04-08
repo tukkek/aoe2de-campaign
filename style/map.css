@@ -39,5 +39,9 @@
 }
 
 .hex.conquered{
-  background:lightgreen;
+  background:darkgreen;
+}
+.hex:not([map]){
+  background:repeating-linear-gradient(30deg, transparent, grey 1vh, transparent 1vh);
+  opacity:10%;
 }

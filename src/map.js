@@ -6,10 +6,10 @@ export const SIZES=[2,3,4,6,8]
 
 const MAP=document.querySelector('#map')
 
-export function get(x=-Number.MAX_VALUE,y=-Number.MAX_VALUE){
-  if(x==-Number.MAX_VALUE&&y==-Number.MAX_VALUE) return Array.from(MAP.querySelectorAll('.hex'))
-  if(x==-Number.MAX_VALUE) return Array.from(MAP.querySelectorAll(`.hex[y="${y}"]`))
-  if(y==-Number.MAX_VALUE) return Array.from(MAP.querySelectorAll(`.hex[x="${x}"]`))
+export function get(x=-1,y=-1){
+  if(x==-1&&y==-1) return Array.from(MAP.querySelectorAll('.hex'))
+  if(x==-1) return Array.from(MAP.querySelectorAll(`.hex[y="${y}"]`))
+  if(y==-1) return Array.from(MAP.querySelectorAll(`.hex[x="${x}"]`))
   return MAP.querySelector(`.hex[x="${x}"][y="${y}"]`)
 }
 
@@ -19,14 +19,17 @@ export function conquer(hex,profit=true){
   permalink.update()
 }
 
-export function getneighbors(hex){
+function map(hexes){return hexes.filter(a=>a&&a.getAttribute('map'))}
+
+export function getneighbors(hex,maps=true){
   let n=[]
   let origin=['x','y'].map(coordinate=>Number(hex.getAttribute(coordinate)))
   for(let x=origin[0]-1;x<=origin[0]+1;x++)
     for(let y=origin[1]-1;y<=origin[1]+1;y++)
-      n.push(get(x,y))
-  n.push(...[get(origin[0],origin[1]-2),get(origin[0],origin[1]+2)])
-  return n.filter(n=>n!=null&&n.getAttribute('map'))
+      n.push([x,y])
+  n.push(...[[origin[0],origin[1]-2],[origin[0],origin[1]+2]])
+  n=n.filter(xy=>xy[0]>=0&&xy[1]>=0).map(xy=>get(xy[0],xy[1])).filter(h=>h)
+  return maps?map(n):n
 }
 
 export function setup(){for(let m of get()) m.onclick=e=>conquer(m)}
@@ -37,7 +40,7 @@ export function draw(){
   var flood=[rpg.pick(all)]
   while(flood.length<8){
     var n=getneighbors(rpg.pick(flood))
-    n=n.filter(n=>n.getAttribute('map')=='land'&&flood.indexOf(n)<0)
+    n=n.filter(n=>n&&n.getAttribute('map')=='land'&&flood.indexOf(n)<0)
     if(n.length) flood.push(rpg.pick(n))
   }
   for(var f of flood){
@@ -51,6 +54,14 @@ export function draw(){
     }
     let coordinate=[a.getAttribute('x'),a.getAttribute('y')]
     if(permalink.CONQUERED.has(coordinate.toString())) conquer(a,false)
+  }
+  for(let ally of map(get(-1,0))){
+    conquer(ally,false)
+    let neighbors=getneighbors(ally,false).filter(n=>!n.getAttribute('map')&&n.getAttribute('y')<=1)
+    for(let n of neighbors){
+      n.setAttribute('map','land')
+      conquer(n,false)
+    }
   }
 }
 
