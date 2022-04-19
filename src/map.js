@@ -47,14 +47,7 @@ export function draw(){
     f.setAttribute('map','water')
     for(let n of getneighbors(f).filter(n=>flood.indexOf(n)<0)) n.setAttribute('map','mixed')
   }
-  for(let a of all){
-    if(rpg.chancein(3)){
-      a.removeAttribute('map')
-      continue
-    }
-    let coordinate=[a.getAttribute('x'),a.getAttribute('y')]
-    if(permalink.CONQUERED.has(coordinate.toString())) conquer(a,false)
-  }
+  for(let a of all) if(rpg.chancein(3)) a.removeAttribute('map')
   for(let ally of map(get(-1,0))){
     conquer(ally,false)
     let neighbors=getneighbors(ally,false).filter(n=>!n.getAttribute('map')&&n.getAttribute('y')<=1)
@@ -62,6 +55,11 @@ export function draw(){
       n.setAttribute('map','land')
       conquer(n,false)
     }
+  }
+  for(let a of all){
+    if(!a.getAttribute('map')||a.classList.contains('conquered')) continue
+    let coordinate=[a.getAttribute('x'),a.getAttribute('y')]
+    if(permalink.CONQUERED.has(coordinate.toString())) conquer(a,false)
   }
 }
 
