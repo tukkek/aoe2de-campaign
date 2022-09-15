@@ -11,7 +11,7 @@ export function roll(min,max){//https://developer.mozilla.org/en-US/docs/Web/Jav
 export function chancein(n){return roll(1,n)==1}
 export function pick(array){return array[roll(0,array.length-1)]}
 
-export function shuffle(array,clone=true){//adapted fro https://stackoverflow.com/a/6274381
+export function shuffle(array,clone=false){//adapted fro https://stackoverflow.com/a/6274381
   if(clone) array=Array.from(array)
   for (let i=array.length-1;i>0;i--){
     let j=Math.floor(rng()*(i+1));//keep semicolon
