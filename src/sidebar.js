@@ -15,17 +15,22 @@ function setplayer(div,text,team){
   set(div,text+` (team ${team})`)
 }
 
+function sort(maps){
+  maps.sort((a,b)=>a.getAttribute('civilization').localeCompare(b.getAttribute('civilization')))
+  return maps
+}
+
 function describe(m){
   if(!m.getAttribute('map')) return
   for(let p of PLAYERS.slice(1,8)) p.classList.add('hidden')
   set(SIDEBAR.querySelector('#mapstyle'),m.getAttribute('map'))
   let neighbors=map.getneighbors(m)
   let i=1
-  for(let n of neighbors.filter(n=>n.classList.contains('conquered'))){
+  for(let n of sort(neighbors.filter(n=>n.classList.contains('conquered')))){
     setplayer(PLAYERS[i],n.getAttribute('civilization'),1)
     i+=1
   }
-  for(let n of neighbors.filter(n=>!n.classList.contains('conquered'))){
+  for(let n of sort(neighbors.filter(n=>!n.classList.contains('conquered')))){
     setplayer(PLAYERS[i],n.getAttribute('civilization'),2)
     i+=1
   }
