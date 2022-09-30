@@ -9,7 +9,7 @@ const CIVS={
 }
 const DEBUG=new URL(document.location).searchParams.has('debug')
 
-export var player=rpg.shuffle(CIVS[rpg.pick(Object.keys(CIVS))]).pop()
+export var player=false
 
 export function debug(){
   for(let h of map.get())
@@ -18,6 +18,7 @@ export function debug(){
 
 export function setup(){
   if(DEBUG) debug()
+  player=rpg.shuffle(CIVS[rpg.pick(Object.keys(CIVS))]).pop()//after rpg.setseed()
   map.draw()
   let conquered=map.getconquered()
   let civs=new Map()
