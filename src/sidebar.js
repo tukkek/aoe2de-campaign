@@ -15,9 +15,12 @@ function setplayer(div,text,team){
   set(div,text+` (team ${team})`)
 }
 
-function sort(maps){
-  maps.sort((a,b)=>a.getAttribute('civilization').localeCompare(b.getAttribute('civilization')))
-  return maps
+function compare(a,b){
+  a=a.getAttribute('civilization')
+  if(a==campaign.player) return -1
+  b=b.getAttribute('civilization')
+  if(b==campaign.player) return +1
+  return a.localeCompare(b)
 }
 
 function describe(m){
@@ -26,11 +29,11 @@ function describe(m){
   set(SIDEBAR.querySelector('#mapstyle'),m.getAttribute('map'))
   let neighbors=map.getneighbors(m)
   let i=1
-  for(let n of sort(neighbors.filter(n=>n.classList.contains('conquered')))){
+  for(let n of neighbors.filter(n=>n.classList.contains('conquered')).sort(compare)){
     setplayer(PLAYERS[i],n.getAttribute('civilization'),1)
     i+=1
   }
-  for(let n of sort(neighbors.filter(n=>!n.classList.contains('conquered')))){
+  for(let n of neighbors.filter(n=>!n.classList.contains('conquered')).sort(compare)){
     setplayer(PLAYERS[i],n.getAttribute('civilization'),2)
     i+=1
   }
