@@ -1,7 +1,7 @@
 import * as map from './map.js'
 import * as rpg from './rpg.js'
 
-const LAND= ['Britons','Byzantines','Celts','Chinese','Franks','Goths','Japanese','Mongols','Persians','Teutons','Turks','Aztecs','Huns','Mayans','Spanish','Incas','Indians','Magyars','Slavs','Ethiopians','Malians','Burmese','Khmer','Vietnamese','Bulgarians','Cumans','Lithuanians','Tatars']
+const LAND=['Aztecs','Britons','Bulgarians','Burmese','Byzantines','Celts','Chinese','Cumans','Ethiopians','Franks','Goths','Hindustanis','Huns','Incas','Japanese','Khmer','Lithuanians','Magyars','Malians','Mayans','Mongols','Persians','Slavs','Spanish','Tatars','Teutons','Turks','Vietnamese']
 const CIVS={
   'land':LAND,
   'mixed':LAND,
