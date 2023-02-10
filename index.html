@@ -50,27 +50,10 @@
   <div id='mapstyle'><strong>Map style:</strong> <span>TBD</span>.</div>
   <div id='mapsize'><strong>Map size:</strong> <span>TBD</span>.</div>
   <div id='difficulty'><strong>AI Difficulty:</strong> <span>TBD</span>.</div>
-  <div id='coins'><label><input type='number' value='1'> gold available.</label></div>
-  <div id='links'>
-    <strong>Links</strong>
-    <ul>
-      <li><a id='freshlink'>New campaign</a></li>
-      <li><a id='permalink'>This campaign</a> (permalink)</li>
-    <ul>
-  </div>
-  <div id='instructions'>
-    <strong>Instructions</strong>
-    <ol>
-      <li>Generate new campaigns as needed until you are ready to begin.</li>
-      <li>Green hexes are allies that will reinforce your team when you invade their neighbors.</li>
-      <li>Go from the bottom green hexes to the top, choosing your own path, one neighboring area at a time.</li>
-      <li>To conquer a hex, play a match against the AI. Hover with the cursor to see match setup details.</li>
-      <li>After winning a match, click the respective hex to conquer it as a new ally.</li>
-      <li>Victories reward you with gold! When the option is available, you may pay gold to add allies for one match.</li>
-      <li>To save your campaign progress, use the permalink function below (then bookmark the tab, for example).</li>
-      <li>You win the campaign after conquering any Extreme difficulty hex.</li>
-    </ul>
-  </div>
+  <div id='coins'><label><input type='number' value='1' min='0'> gold available.</label></div>
+  <div id='purchase'><strong>Purchase cost</strong>: <span>?</span> gold.</div>
+  <button id='help'>How to play</button>
+  <div id='links'><a id='freshlink'>New campaign</a> <a id='permalink'>This campaign</a></div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
 <script type='module'>

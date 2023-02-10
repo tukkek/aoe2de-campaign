@@ -33,3 +33,6 @@
 #sidebar .hidden{
   display:none;
 }
+#links,#help,#purchase{
+  margin-bottom:1em;
+}

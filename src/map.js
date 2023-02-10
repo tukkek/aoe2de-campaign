@@ -15,7 +15,8 @@ export function get(x=-1,y=-1){
 
 export function conquer(hex,profit=true){
   if(!hex.getAttribute('map')) return
-  if(hex.classList.toggle('conquered')&&profit) sidebar.profit()
+  if(hex.classList.toggle('conquered')&&profit)
+    for(let i=0;i<Number(hex.getAttribute('y'));i++) sidebar.profit()
   permalink.update()
 }
 
