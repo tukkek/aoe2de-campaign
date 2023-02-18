@@ -27,6 +27,8 @@
   align-items:center;
   justify-items:center;
   pointer-events:all;
+  font-size:large;
+  font-weight:bold;
 }
 .hex[map='water'],.hex[map='migration']{
   background:lightblue;

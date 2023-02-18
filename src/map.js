@@ -16,7 +16,7 @@ export function get(x=-1,y=-1){
 export function conquer(hex,profit=true){
   if(!hex.getAttribute('map')) return
   if(hex.classList.toggle('conquered')&&profit)
-    for(let i=0;i<Number(hex.getAttribute('y'));i++) sidebar.profit()
+    for(let i=0;i<Number(hex.getAttribute('value'));i++) sidebar.profit()
   permalink.update()
 }
 
@@ -48,7 +48,27 @@ export function draw(){
     f.setAttribute('map','water')
     for(let n of getneighbors(f).filter(n=>flood.indexOf(n)<0)) n.setAttribute('map','mixed')
   }
-  for(let a of all) if(rpg.chancein(3)) a.removeAttribute('map')
+  for(let a of all){
+    if(rpg.chancein(3)){
+      a.removeAttribute('map')
+      continue
+    }
+    let y=Number.parseInt(a.getAttribute('y'))
+    if(y==0){
+      a.setAttribute('value',0)
+      continue
+    }
+    let value=Math.pow(2,y)
+    value=rpg.randomize(value)
+    let digits=0
+    while(value>10){
+      value/=10
+      digits+=1
+    }
+    value=Math.round(value)*Math.pow(10,digits)
+    a.setAttribute('value',value)
+    a.textContent='$'+value
+  }
   for(let ally of map(get(-1,0))){
     conquer(ally,false)
     let neighbors=getneighbors(ally,false).filter(n=>!n.getAttribute('map')&&n.getAttribute('y')<=1)

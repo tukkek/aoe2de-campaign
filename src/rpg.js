@@ -24,3 +24,5 @@ export function setseed(s){
   seed=s
   rng=new Math.seedrandom(s)
 }
+
+export function randomize(n){return n+roll(1,n)-roll(1,n)}

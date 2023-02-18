@@ -54,7 +54,7 @@ function describe(m){
   set(SIDEBAR.querySelector('#mapsize'),mapsize+' players')
   let d=Number(m.getAttribute('y'))
   set(SIDEBAR.querySelector('#difficulty'),DIFFICULTY[d])
-  PURCHASE.textContent=Number(m.getAttribute('y'))
+  PURCHASE.textContent=Number(m.getAttribute('value'))
 }
 
 export function account(){return Number(GOLD.value)}
