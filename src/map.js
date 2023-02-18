@@ -35,6 +35,24 @@ export function getneighbors(hex,maps=true){
 
 export function setup(){for(let m of get()) m.onclick=e=>conquer(m)}
 
+function appraise(area){
+  let y=Number.parseInt(area.getAttribute('y'))
+  if(area.getAttribute('y')=='0'){
+    area.setAttribute('value',0)
+    return
+  }
+  let value=Math.pow(2,y)
+  value=rpg.randomize(value)
+  let digits=0
+  while(value>10){
+    value/=10
+    digits+=1
+  }
+  value=Math.round(value)*Math.pow(10,digits)
+  area.setAttribute('value',value)
+  area.textContent='$'+value
+}
+
 export function draw(){
   let all=get()
   for(let m of all) m.setAttribute('map','land')
@@ -49,25 +67,8 @@ export function draw(){
     for(let n of getneighbors(f).filter(n=>flood.indexOf(n)<0)) n.setAttribute('map','mixed')
   }
   for(let a of all){
-    if(rpg.chancein(3)){
-      a.removeAttribute('map')
-      continue
-    }
-    let y=Number.parseInt(a.getAttribute('y'))
-    if(y==0){
-      a.setAttribute('value',0)
-      continue
-    }
-    let value=Math.pow(2,y)
-    value=rpg.randomize(value)
-    let digits=0
-    while(value>10){
-      value/=10
-      digits+=1
-    }
-    value=Math.round(value)*Math.pow(10,digits)
-    a.setAttribute('value',value)
-    a.textContent='$'+value
+    if(rpg.chancein(3)) a.removeAttribute('map')
+    else appraise(a)
   }
   for(let ally of map(get(-1,0))){
     conquer(ally,false)
