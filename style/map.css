@@ -24,11 +24,27 @@
   -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   display:grid;
-  align-items:center;
+  align-items:flex-end;
   justify-items:center;
   pointer-events:all;
   font-size:large;
   font-weight:bold;
+  cursor:pointer;
+}
+.hex button{
+  margin-bottom:1em;
+  background-color:white;
+  border:.1em gray solid;
+  color:maroon;
+  font-weight:bold;
+  text-shadow:gold .1em .1em .2em;
+  cursor:pointer;
+}
+.hex button:empty{
+  display:none;
+}
+.hex button:hover{
+  background-color:yellow;
 }
 .hex[map='water'],.hex[map='migration']{
   background:lightblue;
@@ -39,11 +55,11 @@
 .hex[map='land'],.hex[map='nomad']{
   background:darkred;
 }
-
 .hex.conquered{
   background:darkgreen;
 }
 .hex:not([map]){
   background:repeating-linear-gradient(30deg, transparent, grey 1vh, transparent 1vh);
   opacity:10%;
+  cursor:initial;
 }

@@ -60,6 +60,12 @@ function describe(m){
 export function account(){return Number(GOLD.value)}
 export function profit(gold=-Infinity){GOLD.value=gold==-Infinity?account()+1:gold}
 
+export function pay(gold){
+  if(GOLD.value<gold) return false
+  GOLD.value-=gold
+  return true
+}
+
 export function setup(){
   setplayer(PLAYERS[0],campaign.player,1)
   for(let m of map.get()) m.onmouseover=e=>describe(m)

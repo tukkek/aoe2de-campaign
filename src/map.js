@@ -50,7 +50,12 @@ function appraise(area){
   }
   value=Math.round(value)*Math.pow(10,digits)
   area.setAttribute('value',value)
-  area.textContent='$'+value
+  let b=area.querySelector('button')
+  b.textContent='$'+value
+  b.onclick=(e)=>{
+    if(sidebar.pay(value)) conquer(area,false)
+    e.stopPropagation()
+  }
 }
 
 export function draw(){
