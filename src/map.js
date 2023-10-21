@@ -41,14 +41,14 @@ function appraise(area){
     area.setAttribute('value',0)
     return
   }
-  let value=Math.pow(2,y)
+  let value=Math.pow(2,y-1)
   value=rpg.randomize(value)
   let digits=0
   while(value>10){
     value/=10
     digits+=1
   }
-  value=Math.round(value)*Math.pow(10,digits)
+  value=Math.floor(value)*Math.pow(10,digits)
   area.setAttribute('value',value)
   let b=area.querySelector('button')
   b.textContent='$'+value
