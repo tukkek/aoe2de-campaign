@@ -8,16 +8,16 @@ const PLAYERS=Array.from(SIDEBAR.querySelectorAll('div')).slice(0,8)
 const GOLD=SIDEBAR.querySelector('input')
 const PURCHASE=SIDEBAR.querySelector('#purchase span')
 const HELP=`
-  - Generate new campaigns as needed until you are ready to begin.
-  - Green hexes are allies that will reinforce your team when you invade their neighbors.
-  - Go from the bottom green hexes to the top, choosing your own path, one neighboring area at a time.
-  - To conquer a hex, play a match against the AI. Hover with the cursor to see match setup details.
-  - After winning a match, click the respective hex to conquer it as a new ally.
-  - Victories reward you with gold! Use the gold to bribe hostile territories into becoming your allies.
-  - Bribing a territory doesn't reward gold, make sure to alter the gold value correctly.
-  - To save your campaign progress, use the permalink function below (then bookmark the tab, for example).
-  - You win the campaign after conquering any Extreme difficulty hex.
-  `.trim()
+- Generate new campaigns as needed until you are ready to begin.
+- Green hexes are allies that will reinforce your team when you invade their neighbors.
+- Go from the bottom green hexes to the top, choosing your own path, one neighboring area at a time.
+- To conquer a hex, play a match against the AI. Hover with the cursor to see match setup details.
+- After winning a match, click the respective hex to conquer it as a new ally.
+- Victories reward you with gold! Use the gold to bribe hostile territories into becoming your allies.
+- Bribing a territory doesn't reward gold, make sure to alter the gold value correctly.
+- To save your campaign progress, use the permalink function below (then bookmark the tab, for example).
+- You win the campaign after conquering any Extreme difficulty hex.
+`.trim()
 
 function set(div,text){div.querySelector('span').innerHTML=text}
 function show(div){div.classList.remove('hidden')}
