@@ -19,7 +19,7 @@ export function debug(){
 export function setup(){
   if(DEBUG) debug()
   player=rpg.shuffle(CIVS[rpg.pick(Object.keys(CIVS))]).pop()//after rpg.setseed()
-  map.draw()
+  map.draw()//TODO while(!map.validate()) map.draw(), check for no starting allies and broken path
   let conquered=map.getconquered()
   let civs=new Map()
   for(let c of Object.keys(CIVS)) civs.set(c,rpg.pick(CIVS[c]))
